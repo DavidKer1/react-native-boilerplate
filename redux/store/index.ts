@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, Middleware } from "@reduxjs/toolkit";
 import {
 	useSelector as useReduxSelector,
 	useDispatch as useReduxDispatch,
@@ -7,12 +7,17 @@ import {
 import type { ThunkAction } from "redux-thunk";
 import type { Action } from "@reduxjs/toolkit";
 import type { TypedUseSelectorHook } from "react-redux";
-
 import { rootReducer } from "./root-reducer";
+// @ts-ignore
+import logger from "redux-logger";
 
+const middleware: Middleware[] = [];
+if(__DEV__){
+	middleware.push(logger);
+}
 export const store = configureStore({
 	reducer: rootReducer,
-	devTools: process.env.NODE_ENV !== "production",
+	middleware,
 });
 
 export type RootState = ReturnType<typeof store.getState>;
