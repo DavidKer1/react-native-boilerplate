@@ -6,7 +6,11 @@
 		"paths": {
 			"@/redux/*": ["./redux/*"],
 			"@/components/*": ["./components/*"],
-			"@/screens/*": ["./screens/*"]
+			"@/screens/*": ["./screens/*"],
+			"@/constants/*": ["./constants/*"],
+			"@/hooks/*": ["./hooks/*"],
+			"@/navigation/*": ["./navigation/*"],
+			"@/theme/*": ["./theme/*"]
 		}
 	}
 }
